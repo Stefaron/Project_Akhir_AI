@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Prediksi Tingkat Stres Mahasiswa</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      .input-group {
+        margin-bottom: 10px;
+      }
+
+      .input-group label {
+        display: inline-block;
+        width: 200px;
+      }
+
+      .input-group input {
+        width: 200px;
+        padding: 5px;
+      }
+
+      .input-group button {
+        padding: 5px 10px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+
+      .result {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Prediksi Tingkat Stres Mahasiswa</h1>
+
+    <div class="input-group">
+      <label for="lama_belajar">Lama belajar (jam):</label>
+      <input type="number" id="lama_belajar" />
+    </div>
+
+    <div class="input-group">
+      <label for="intensitas_tugas">Intensitas tugas:</label>
+      <input type="number" id="intensitas_tugas" />
+    </div>
+
+    <div class="input-group">
+      <label for="jam_kuliah">Jam kuliah (jam):</label>
+      <input type="number" id="jam_kuliah" />
+    </div>
+
+    <div class="input-group">
+      <label for="jam_tidur">Jam tidur (jam):</label>
+      <input type="number" id="jam_tidur" />
+    </div>
+
+    <div class="input-group">
+      <label for="jenis_kelamin">Jenis kelamin:</label>
+      <select id="jenis_kelamin">
+        <option value="0">Laki-laki</option>
+        <option value="1">Perempuan</option>
+      </select>
+    </div>
+
+    <div class="input-group">
+      <label for="perantau">Mahasiswa perantau:</label>
+      <select id="perantau">
+        <option value="0">Tidak</option>
+        <option value="1">Ya</option>
+      </select>
+    </div>
+
+    <div class="input-group">
+      <label for="jml_sks">Jumlah SKS yang diambil:</label>
+      <input type="number" id="jml_sks" />
+    </div>
+
+    <div class="input-group">
+      <label for="uang_bulanan">Uang bulanan:</label>
+      <input type="number" id="uang_bulanan" />
+    </div>
+
+    <!-- Menambahkan input fields lainnya sesuai dengan kode sebelumnya -->
+
+    <div class="input-group">
+      <button onclick="predict()">Prediksi</button>
+    </div>
+
+    <div class="result">
+      <h2>Hasil Prediksi:</h2>
+      <p id="result_text"></p>
+    </div>
+
+    <script>
+      function predict() {
+        var lamaBelajar = parseInt(document.getElementById("lama_belajar").value);
+        var intensitasTugas = parseInt(document.getElementById("intensitas_tugas").value);
+        var jamKuliah = parseInt(document.getElementById("jam_kuliah").value);
+        var jamTidur = parseInt(document.getElementById("jam_tidur").value);
+        var jenisKelamin = parseInt(document.getElementById("jenis_kelamin").value);
+        var perantau = parseInt(document.getElementById("perantau").value);
+        var jmlSks = parseInt(document.getElementById("jml_sks").value);
+        var uangBulanan = parseFloat(document.getElementById("uang_bulanan").value);
+
+        // Membuat objek dengan nilai input
+        var inputData = {
+          lama_belajar: lamaBelajar,
+          intensitas_tugas: intensitasTugas,
+          jam_kuliah: jamKuliah,
+          jam_tidur: jamTidur,
+          jenis_kelamin: jenisKelamin,
+          perantau: perantau,
+          jml_sks: jmlSks,
+          uang_bulanan: uangBulanan,
+          // Menambahkan atribut lainnya sesuai dengan kode sebelumnya
+        };
+
+        // Membuat objek XMLHttpRequest
+        var xhr = new XMLHttpRequest();
+
+        // Mengatur callback function saat permintaan selesai
+        xhr.onload = function () {
+          if (xhr.status === 200) {
+            // Mengambil hasil prediksi dari respons
+            var response = JSON.parse(xhr.responseText);
+            var result = response.prediction;
+
+            // Menampilkan hasil prediksi
+            document.getElementById("result_text").textContent = "Tingkat stres: " + result;
+          } else {
+            console.log("Error:", xhr.status);
+          }
+        };
+
+        // Mengatur permintaan POST ke endpoint prediksi
+        xhr.open("POST", "/predict", true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        // Mengirim data input sebagai payload JSON
+        xhr.send(JSON.stringify(inputData));
+      }
+    </script>
+  </body>
+</html>
