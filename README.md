@@ -18,7 +18,7 @@ Untuk datasetnya ini kami menggunakan dataset survei kepada mahasiswa-mahasiswa 
 Cara penggunaannya sebagai berikut :
 1. Clone link github ini pada directory kesayangan anda.
 2. Buka projek ini menggunakan editor anda.
-3. Run program main.py dan lihat outputnya
+3. Run program main_index.py dan lihat outputnya
 4. Output tersebut merupakan server yang telah dibuat oleh libary flask
 5. Masuk pada browser anda dan masuk ke server yang telah di running oleh python tadi
 6. Contoh jika output sernya adalah * Running on http://127.0.0.1:5000 , maka copy saja alamat server tersebut ke browser anda dan secara otomatis akan meload kode html anda.
