@@ -15,5 +15,16 @@ Untuk algoritmanya kami menggunakan Algoritma Model Decision Tree
 
 Untuk datasetnya ini kami menggunakan dataset survei kepada mahasiswa-mahasiswa Informatika, dan semoga dataset ini valid
 
+Cara penggunaannya sebagai berikut :
+1. Clone link github ini pada directory kesayangan anda.
+2. Buka projek ini menggunakan editor anda.
+3. Run program main.py dan lihat outputnya
+4. Output tersebut merupakan server yang telah dibuat oleh libary flask
+5. Masuk pada browser anda dan masuk ke server yang telah di running oleh python tadi
+6. Contoh jika output sernya adalah * Running on http://127.0.0.1:5000 , maka copy saja alamat server tersebut ke browser anda dan secara otomatis akan meload kode html anda.
+7. Masukkan inputan sesuai kasus anda, dan jika sudah klik "Prediksi"
+8. Tunggu sebentar, jika sudah nanti program akan menampilkan output apakah anda termasuk stress Tinggi atau Rendah
+9. Selamat mencoba dan Happy AI !!!
+
 Akhir kata kami ucapkan terimakasih jika terdapat salah kata, tindakan, dan hal yang kurang menyenangkan dari kami maupun AI kami, semoga kita sama-sama bisa berkembang lagi menjadi developer Internasional, sekian dari kami.
 Terimakasih, Tuhan Yesus memberkati.
